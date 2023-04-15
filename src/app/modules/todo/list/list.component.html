@@ -1,0 +1,14 @@
+<h1>Todo list</h1>
+<mat-list>
+    <div *ngIf="!todos?.length">No todos here. You can add one</div>
+    <ng-template ngFor let-todo [ngForOf]="todos">
+        <mat-list-item >
+            <span>{{todo.title}}</span>
+            <button mat-button color="danger" (click)="deleteTodo(todo.id)">Delete</button>  
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </ng-template>
+    
+    
+</mat-list>
+<todo-create (todoAdded)="onTodoAdded($event)" />
