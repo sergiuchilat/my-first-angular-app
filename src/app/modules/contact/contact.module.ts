@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
-
+import { MatCard, MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -11,6 +11,7 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     CommonModule,
+    MatCardModule
   ]
 })
 export class ContactModule { }

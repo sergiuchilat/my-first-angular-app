@@ -6,6 +6,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatCard, MatCardModule } from '@angular/material/card';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 
@@ -13,13 +15,15 @@ import { MatListModule } from '@angular/material/list';
   declarations: [
     ListComponent,
     CreateComponent,
+    WelcomeComponent,
   ],
   imports: [
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
   ]
 })
 export class TodoModule { }

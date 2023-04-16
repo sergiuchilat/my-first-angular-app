@@ -1,0 +1,18 @@
+<h1>Hello. This is a Todo App</h1>
+<div class="welcome-form">
+    <mat-form-field >
+        <mat-label>Whats is your name?</mat-label>
+        <input 
+            matInput 
+            [value]="userName" 
+            (change)="changeUserName($event)"
+            (keydown.enter)="saveUserNameOnEnter($event)"
+        >
+    </mat-form-field>
+    <button 
+        mat-raised-button
+        color="primary" 
+        (click) = "saveUserName()"
+    >Save</button>
+</div>
+

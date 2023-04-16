@@ -1,4 +1,6 @@
 export interface Todo{
     id: Number,
-    title: string
+    title: string,
+    createdAt: Date,
+    createdAtFormatted: String
 }

@@ -1,15 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 mat-nav-list.list-horizontal {
     padding: 0;
     display: flex;
-    .mat-list-item {
-      display: inline-block;
-      height: auto;
-      width: auto;
-    }
-  }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    .mat-list-item {
+        display: inline-block;
+        height: auto;
+        width: auto;
+    }
+}
+
+.todo-page {
+    max-width: 40em;
+    margin: 0 auto;
+
+    .todo-item {
+        display: grid;
+        grid-template-columns: auto 6em;
+        padding: 1em;
+        button{
+            margin-left: 1em;
+        }
+
+        .time{
+            text-align: right;
+            font-style: italic;
+        }
+    }
+
+    .todo-add-form {
+        mat-form-field, button {
+            width: 100%;
+        }
+    }
+}
+.welcome-form{
+    mat-form-field, button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .todo-page{
+        .todo-item{
+            display: block;
+
+            .title{
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+
+            button{
+                width: 100%;
+            }
+        }
+    }
+}
