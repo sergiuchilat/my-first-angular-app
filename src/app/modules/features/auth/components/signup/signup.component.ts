@@ -1,13 +1,17 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss']
+  selector: 'auth-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class WelcomeComponent {
+export class SignupComponent implements OnInit{
   @Input() userName?: string
   @Output() userNameSaved:  EventEmitter<any> = new EventEmitter();
+
+  constructor(private authService: AuthService) {
+  }
 
   changeUserName(event: any) {
     this.userName = event?.target?.value;
@@ -23,16 +27,17 @@ export class WelcomeComponent {
   }
 
   saveUserName(){
-    localStorage.setItem('userName', this.userName || '')
+    this.authService.signup(this.userName || '');
     this.userNameSaved.emit(null);
     setTimeout(() => {
       this.initUserName()
+      document.location.href = ''
     }, 200)
   }
 
   ngOnInit(){
     this.initUserName()
-    const userName = localStorage.getItem('userName');
+    const userName = this.authService.getUsername()
     if(userName?.length){
       this.userName = userName;
     }

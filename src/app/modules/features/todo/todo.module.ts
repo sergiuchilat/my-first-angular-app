@@ -1,21 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './list/list.component';
-import { CreateComponent } from './create/create.component';
+import { ListComponent } from './components/list/list.component';
+import { CreateComponent } from './components/create/create.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { MatCard, MatCardModule } from '@angular/material/card';
-import { WelcomeComponent } from './welcome/welcome.component';
-
-
+import { MatCardModule } from '@angular/material/card';
+import {AuthService} from "../auth/services/auth.service";
 
 @NgModule({
   declarations: [
     ListComponent,
-    CreateComponent,
-    WelcomeComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +20,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatInputModule,
     MatButtonModule,
     MatListModule,
-    MatCardModule,
+    MatCardModule
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class TodoModule { }

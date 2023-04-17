@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Todo } from '../models/todo.model';
+import { Todo } from '../../models/todo.model';
 import * as moment from 'moment';
+import {TodoService} from "../../services/todo.service";
 
 @Component({
   selector: 'todo-create',
@@ -12,6 +13,9 @@ export class CreateComponent implements OnInit {
 
   @Output() todoAdded:  EventEmitter<any> = new EventEmitter();
 
+  constructor(private todoService: TodoService) {
+  }
+
   changeTitle(event: any) {
     this.todo.title = event?.target?.value;
   }
@@ -22,10 +26,8 @@ export class CreateComponent implements OnInit {
   }
 
   createTodo(){
-    const todos = JSON.parse(localStorage.getItem('todos') || '[]')
     this.todo.createdAt = new Date()
-    todos.push(this.todo)
-    localStorage.setItem('todos', JSON.stringify(todos))
+    this.todoService.create(this.todo)
     this.todoAdded.emit(null);
     setTimeout(() => {
       this.initTodo()
@@ -43,5 +45,5 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.initTodo()
-  } 
+  }
 }

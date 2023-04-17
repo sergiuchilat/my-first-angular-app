@@ -46,10 +46,13 @@ mat-nav-list.list-horizontal {
         }
     }
 }
+
 .welcome-form{
-    mat-form-field, button {
-        width: 100%;
-    }
+  max-width: 40em;
+  margin: 0 auto;
+  mat-form-field, button {
+      width: 100%;
+  }
 }
 
 @media screen and (max-width: 500px) {

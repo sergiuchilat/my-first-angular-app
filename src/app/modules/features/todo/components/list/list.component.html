@@ -1,9 +1,5 @@
 <mat-card class="todo-page">
-    <app-welcome 
-        *ngIf="!userName?.length"
-        (userNameSaved)="onUserNameSaved($event)"
-    ></app-welcome>
-    <div *ngIf="userName?.length">
+    <div >
         <mat-card-header class="flex">
             <h1>Hello {{ userName }}</h1>
             <div *ngIf="todos?.length">Your have <strong>{{todos?.length}}</strong> Todo's</div>
@@ -16,12 +12,12 @@
                             <div>{{todo.title}}</div>
                             <div class="time">{{todo.createdAtFormatted}}</div>
                         </div>
-                        
-                        <button mat-raised-button color="accent" (click)="deleteTodo(todo.id)">Delete</button>  
+
+                        <button mat-raised-button color="accent" (click)="deleteTodo(todo.id)">Delete</button>
                     </div>
                     <mat-divider></mat-divider>
                 </ng-template>
-            
+
             <todo-create (todoAdded)="onTodoAdded($event)" />
         </mat-card-content>
     </div>

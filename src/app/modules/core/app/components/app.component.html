@@ -1,0 +1,20 @@
+<auth-signup *ngIf="!authenticated()"/>
+<div *ngIf="authenticated()">
+  <mat-toolbar color="primary">
+    <mat-icon>apps</mat-icon>
+    <mat-nav-list class="list-horizontal">
+      <mat-list-item class="mat-list-item">
+        <a mat-list-item routerLink="/">Todo</a>
+      </mat-list-item>
+      <mat-list-item class="mat-list-item">
+        <a mat-list-item routerLink="/contact">Contact</a>
+      </mat-list-item>
+      <mat-list-item class="mat-list-item">
+        <a mat-list-item (click)="logout()">Logout</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-toolbar>
+
+
+  <router-outlet></router-outlet>
+</div>
