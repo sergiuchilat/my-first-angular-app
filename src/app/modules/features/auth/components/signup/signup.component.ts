@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'auth-signup',
@@ -10,7 +11,10 @@ export class SignupComponent implements OnInit{
   @Input() userName?: string
   @Output() userNameSaved:  EventEmitter<any> = new EventEmitter();
 
+  isLoggedIn: Observable<boolean>;
+
   constructor(private authService: AuthService) {
+    this.isLoggedIn = authService.isLoggedIn()
   }
 
   changeUserName(event: any) {
@@ -29,10 +33,6 @@ export class SignupComponent implements OnInit{
   saveUserName(){
     this.authService.signup(this.userName || '');
     this.userNameSaved.emit(null);
-    setTimeout(() => {
-      this.initUserName()
-      document.location.href = ''
-    }, 200)
   }
 
   ngOnInit(){
@@ -41,5 +41,6 @@ export class SignupComponent implements OnInit{
     if(userName?.length){
       this.userName = userName;
     }
+
   }
 }

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {AuthService} from "../../../features/auth/services/auth.service";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -12,7 +13,9 @@ export class AppComponent implements OnInit{
   title = 'my-app';
   @Input() username: string = '';
 
+  isLoggedIn: Observable<boolean>;
   constructor(private authService: AuthService) {
+    this.isLoggedIn = authService.isLoggedIn();
   }
 
   authenticated(): boolean{
@@ -21,7 +24,6 @@ export class AppComponent implements OnInit{
 
   logout(){
     this.authService.logout();
-    document.location.href = ''
   }
 
   ngOnInit() {
