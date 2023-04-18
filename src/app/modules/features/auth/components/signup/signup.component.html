@@ -1,17 +1,13 @@
 <div class="welcome-form">
   <h1>Hello. This is a Todo App</h1>
-    <mat-form-field >
-        <mat-label>Whats is your name?</mat-label>
-        <input
-            matInput
-            [value]="userName"
-            (change)="changeUserName($event)"
-            (keydown.enter)="saveUserNameOnEnter($event)"
-        >
-    </mat-form-field>
-    <button
-        mat-raised-button
-        color="primary"
-    >Save</button>
+  <mat-form-field>
+    <mat-label>Whats is your name?</mat-label>
+    <input
+      matInput
+      [value]="userName"
+      (change)="changeUserName($event)"
+      (keydown.enter)="saveUserNameOnEnter($event)"
+    />
+  </mat-form-field>
+  <button mat-raised-button color="primary">Save</button>
 </div>
-

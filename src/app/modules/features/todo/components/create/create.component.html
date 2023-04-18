@@ -1,17 +1,15 @@
 <div class="todo-add-form">
-    <mat-form-field >
-        <mat-label>Todo message</mat-label>
-        <input 
-            matInput 
-            [value]="todo.title" 
-            (change)="changeTitle($event)"
-            (keydown.enter)="createTodoOnEnter($event)"
-        >
-    </mat-form-field>
+  <mat-form-field>
+    <mat-label>Todo message</mat-label>
+    <input
+      matInput
+      [value]="todo.title"
+      (change)="changeTitle($event)"
+      (keydown.enter)="createTodoOnEnter($event)"
+    />
+  </mat-form-field>
 
-    <button 
-        mat-raised-button
-        color="primary" 
-        (click) = "createTodo()"
-    >Add Todo</button>
+  <button mat-raised-button color="primary" (click)="createTodo()">
+    Add Todo
+  </button>
 </div>

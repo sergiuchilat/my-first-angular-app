@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListComponent } from '../../features/todo/components/list/list.component';
-import { MainComponent } from '../../features/contact/main/main.component';
+import { ListComponent } from '../../features/todo/pages/list/list.component';
+import { MainComponent } from '../../features/contact/pages/main/main.component';
 
 const routes: Routes = [
   {
-    path: '', component: ListComponent
+    path: '',
+    component: ListComponent,
   },
   {
-    path: 'contact', component: MainComponent
-  }
+    path: 'contact',
+    component: MainComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

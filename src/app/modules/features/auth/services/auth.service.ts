@@ -1,37 +1,34 @@
-import {Injectable} from "@angular/core";
-import {BehaviorSubject, Observable} from "rxjs";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+export class AuthService {
+  private isLoggedIn$ = new BehaviorSubject<boolean>(this.userHasName());
 
-export class AuthService{
-  private isAuthenticatedUserSubject = new BehaviorSubject<boolean>(this.userHasName())
+  constructor() {}
 
-  constructor() {
+  signup(username: string) {
+    localStorage.setItem('userName', username || '');
+    this.isLoggedIn$.next(true);
   }
 
-  signup(username: string){
-    localStorage.setItem('userName', username || '')
-    this.isAuthenticatedUserSubject.next(true);
-  }
-
-  logout(): void{
+  logout(): void {
     localStorage.removeItem('userName');
     localStorage.removeItem('todos');
-    this.isAuthenticatedUserSubject.next(false);
+    this.isLoggedIn$.next(false);
   }
 
-  getUsername(): string{
+  getUsername(): string {
     return localStorage.getItem('userName') || '';
   }
 
-  userHasName(): boolean{
-    return this.getUsername().length > 0
+  userHasName(): boolean {
+    return this.getUsername().length > 0;
   }
 
-  isLoggedIn(): Observable<boolean>{
-    return this.isAuthenticatedUserSubject.asObservable()
+  isLoggedIn(): Observable<boolean> {
+    return this.isLoggedIn$.asObservable();
   }
-
 }

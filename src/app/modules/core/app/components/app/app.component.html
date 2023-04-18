@@ -1,0 +1,7 @@
+<auth-signup *ngIf="!(isLoggedIn | async)" />
+
+<ng-template [ngIf]="isLoggedIn | async">
+  <nav-bar></nav-bar>
+
+  <router-outlet></router-outlet>
+</ng-template>
