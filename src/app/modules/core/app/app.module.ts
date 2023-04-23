@@ -17,9 +17,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './components/app/app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {LanguageSwitcherComponent} from "./components/language-switcher/language-switcher.component";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, SignupComponent],
+  declarations: [AppComponent, NavbarComponent, SignupComponent, LanguageSwitcherComponent],
   imports: [
     BrowserModule,
     MatSlideToggleModule,
@@ -34,6 +36,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatMenuModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

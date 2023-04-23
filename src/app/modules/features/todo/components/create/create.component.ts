@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import { Todo } from '../../models/todo.model';
 import * as moment from 'moment';
 import { TodoService } from '../../services/todo.service';
@@ -8,7 +8,7 @@ import { TodoService } from '../../services/todo.service';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
 })
-export class CreateComponent implements OnInit {
+export class CreateComponent implements OnInit, OnChanges {
   @Input() todo!: Todo;
 
   @Output() todoAdded: EventEmitter<any> = new EventEmitter();
@@ -30,7 +30,7 @@ export class CreateComponent implements OnInit {
     this.todoAdded.emit(null);
     setTimeout(() => {
       this.initTodo();
-    }, 200);
+    }, 50);
   }
 
   initTodo() {
@@ -45,4 +45,14 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
     this.initTodo();
   }
+
+  ngOnChanges(changes: SimpleChanges){
+    for (const propName in changes) {
+      const chng = changes[propName];
+      const cur  = JSON.stringify(chng.currentValue);
+      const prev = JSON.stringify(chng.previousValue);
+      console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+    }
+  }
+
 }

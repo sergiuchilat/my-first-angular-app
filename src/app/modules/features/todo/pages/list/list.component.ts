@@ -20,9 +20,6 @@ export class ListComponent implements OnInit {
   onTodoAdded(event: any) {
     this.getTodos();
   }
-  onUserNameSaved(event: any) {
-    this.userName = this.authService.getUsername();
-  }
 
   getTodos() {
     this.todos = this.todoService.get();
