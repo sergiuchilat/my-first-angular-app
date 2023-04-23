@@ -9,5 +9,5 @@
       (keydown.enter)="saveUserNameOnEnter($event)"
     />
   </mat-form-field>
-  <button mat-raised-button color="primary">Save</button>
+  <button (click)="saveUserName()" mat-raised-button color="primary">Save</button>
 </div>
