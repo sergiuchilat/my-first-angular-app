@@ -1,6 +1,10 @@
-<button mat-button [matMenuTriggerFor]="menu">{{ appLocale | async }}</button>
+<button mat-button [matMenuTriggerFor]="menu">{{ appLocale }}</button>
 <mat-menu #menu="matMenu">
-  <button *ngFor="let locale of appLocales" mat-menu-item>
-    <span>{{ locale}}</span>
+  <button
+    *ngFor="let locale of appLocales"
+    (click)="setLocale(locale)"
+    mat-menu-item
+  >
+    <span>{{ locale }}</span>
   </button>
 </mat-menu>

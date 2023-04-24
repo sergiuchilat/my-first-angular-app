@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'auth-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
 
   isLoggedIn: Observable<boolean>;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private translateService :TranslateService) {
     this.isLoggedIn = authService.isLoggedIn();
   }
 

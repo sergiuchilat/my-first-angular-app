@@ -1,0 +1,12 @@
+{
+  "app": {
+    "title": "Привет. Это ToDO приложение",
+    "welcomeText": "Привет"
+  },
+  "modules": {
+    "todo": {
+      "addTodoLabel": "Текст Todo",
+      "addTodoButton": "Добавить Todo"
+    }
+  }
+}

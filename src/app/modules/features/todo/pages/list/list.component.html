@@ -1,7 +1,7 @@
 <mat-card class="todo-page">
   <div>
     <mat-card-header class="flex">
-      <h1>Hello {{ userName }}</h1>
+      <h1>{{ "app.welcomeText" | translate}} {{ userName }}</h1>
       <div *ngIf="todos?.length">
         Your have <strong>{{ todos?.length }}</strong> Todo's
       </div>

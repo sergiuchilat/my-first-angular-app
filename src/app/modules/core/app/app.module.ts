@@ -19,6 +19,8 @@ import { AppComponent } from './components/app/app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {LanguageSwitcherComponent} from "./components/language-switcher/language-switcher.component";
 import {MatMenuModule} from "@angular/material/menu";
+import {NgxTranslateModule} from "../translate/translate.module";
+import {TranslateService} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, SignupComponent, LanguageSwitcherComponent],
@@ -37,8 +39,9 @@ import {MatMenuModule} from "@angular/material/menu";
     MatInputModule,
     MatButtonModule,
     MatMenuModule,
+    NgxTranslateModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TranslateService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

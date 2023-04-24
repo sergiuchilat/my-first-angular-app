@@ -1,6 +1,11 @@
 import {Component, OnInit} from "@angular/core";
-import {AppLocale, LocalizationService} from "../../services/localization.service";
-import {Observable} from "rxjs";
+import {TranslateService} from "@ngx-translate/core";
+import {
+  AppLocale,
+  getAppLocales,
+  getLocaleFromLocalStorage,
+  setLocaleToLocalStorage
+} from "../../../translate/translate.module";
 
 @Component({
   selector: 'language-switcher',
@@ -10,11 +15,18 @@ import {Observable} from "rxjs";
 
 export class LanguageSwitcherComponent implements OnInit{
 
-  appLocale: Observable<AppLocale>;
-  appLocales: AppLocale[] = this.localizationService.getLocales()
-  constructor(private localizationService: LocalizationService) {
-    this.appLocale = localizationService.getLocale()
+  appLocale = getLocaleFromLocalStorage();
+  appLocales = getAppLocales()
+  constructor(private translateService: TranslateService) {
+
   }
+
+  setLocale(locale: string){
+    this.translateService.setDefaultLang(locale)
+    setLocaleToLocalStorage(locale)
+    this.appLocale = locale
+  }
+
   ngOnInit() {
   }
 }

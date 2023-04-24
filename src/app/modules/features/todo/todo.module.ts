@@ -8,17 +8,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { AuthService } from '../auth/services/auth.service';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [ListComponent, CreateComponent],
-  imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatListModule,
-    MatCardModule,
-  ],
+    imports: [
+        CommonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatListModule,
+        MatCardModule,
+        TranslateModule,
+    ],
   providers: [AuthService],
 })
 export class TodoModule {}

@@ -1,6 +1,6 @@
 <div class="todo-add-form">
   <mat-form-field>
-    <mat-label>Todo message</mat-label>
+    <mat-label>{{ "modules.todo.addTodoLabel" | translate}}</mat-label>
     <input
       matInput
       [value]="todo.title"
@@ -10,6 +10,6 @@
   </mat-form-field>
 
   <button mat-raised-button color="primary" (click)="createTodo()">
-    Add Todo
+    {{ "modules.todo.addTodoButton" | translate}}
   </button>
 </div>

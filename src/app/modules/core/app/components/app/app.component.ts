@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   isLoggedIn: Observable<boolean>;
   constructor(private authService: AuthService) {
     this.isLoggedIn = authService.isLoggedIn();
+
   }
 
   logout() {

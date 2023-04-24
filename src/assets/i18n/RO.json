@@ -1,0 +1,12 @@
+{
+  "app": {
+    "title": "Salut. Aceasta este o aplicație ToDo",
+    "welcomeText": "Salut"
+  },
+  "modules": {
+    "todo": {
+      "addTodoLabel": "Textul Todo",
+      "addTodoButton": "Adaugă Todo"
+    }
+  }
+}

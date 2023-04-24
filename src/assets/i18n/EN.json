@@ -1,0 +1,12 @@
+{
+  "app": {
+    "title": "Hello. This is a Todo App",
+    "welcomeText": "Welcome"
+  },
+  "modules": {
+    "todo": {
+      "addTodoLabel": "Todo message",
+      "addTodoButton": "Add Todo"
+    }
+  }
+}
