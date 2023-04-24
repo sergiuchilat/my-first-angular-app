@@ -12,15 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-          "ru": {
-
-          }
-        }
-      },
+      "prefix": "app"
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
